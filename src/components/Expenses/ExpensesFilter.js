@@ -4,6 +4,7 @@ import "./ExpensesFilter.css";
 
 const ExpensesFilter = (props) => {
   const dropdownChangeHandler = (event) => {
+    // 상태 끌어올리기
     props.onChangeFilter(event.target.value);
   };
 

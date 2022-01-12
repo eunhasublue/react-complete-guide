@@ -5,6 +5,7 @@ import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
 
 function Expenses(props) {
+  // ExpenseFilter.js에서 year value 값 상태 끌어올리기
   const [filteredYear, setFilteredYear] = useState("2020");
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
@@ -13,6 +14,7 @@ function Expenses(props) {
     <div>
       <Card className="expenses">
         <ExpensesFilter
+          // year 양방향 바인딩
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
