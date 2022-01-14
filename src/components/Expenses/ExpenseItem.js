@@ -25,19 +25,21 @@ function ExpenseItem(props) {
   // html code and jsx code가 return 됨
   return (
     // Card에게 있어서 ExpenseDate는 자식 컴포넌트
-    <Card className="expense-item">
-      {/* 
+    <li>
+      <Card className="expense-item">
+        {/* 
           열린 태그 닫는 태그 사이에 내용이 없으면 아래 처럼 작성해야한다. 
           스스로 닫아줘야 한다.
       */}
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      {/* onClick 이벤트리스너의 함수의 경우 {} 중괄호 안에 함수가 들어간다. */}
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2>{title}</h2>
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+        {/* onClick 이벤트리스너의 함수의 경우 {} 중괄호 안에 함수가 들어간다. */}
+        <button onClick={clickHandler}>Change Title</button>
+      </Card>
+    </li>
   );
 }
 

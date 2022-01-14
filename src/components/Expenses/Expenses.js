@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 function Expenses(props) {
   // ExpenseFilter.js에서 year value 값 상태 끌어올리기
@@ -10,19 +10,20 @@ function Expenses(props) {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
+
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
+        {/* selected year 양방향 바인딩 */}
         <ExpensesFilter
-          // year 양방향 바인딩
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        <ExpenseItem
-          title={props.item[0].title}
-          amount={props.item[0].amount}
-          date={props.item[0].date}
-        />
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );

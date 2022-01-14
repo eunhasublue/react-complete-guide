@@ -7,7 +7,6 @@ const ExpensesFilter = (props) => {
     // 상태 끌어올리기
     props.onChangeFilter(event.target.value);
   };
-
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
